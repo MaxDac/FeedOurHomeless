@@ -1,0 +1,18 @@
+﻿<div class="w-48 mx-auto my-7 text-center">
+  <h1 class="text-2xl">@Text</h1>
+
+  @if (!string.IsNullOrWhiteSpace(SubTitle))
+  {
+    <h2 class="text-lg text-gray-600">@SubTitle</h2>
+  }
+
+  <span class="m-auto w-10 hover:w-40 border border-t-2 border-brand inline-block transition ease-in-out duration-300"></span>
+</div>
+
+@code {
+  [Parameter]
+  public required string Text { get; set; }
+
+  [Parameter]
+  public string? SubTitle { get; set; }
+}

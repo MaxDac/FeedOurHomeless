@@ -1,0 +1,11 @@
+﻿<a href="@Href" class="text-brand hover:text-black transition ease-in-out duration-300">
+  @ChildContent
+</a>
+
+@code {
+  [Parameter]
+  public required string Href { get; set; }
+
+  [Parameter]
+  public required RenderFragment ChildContent { get; set; } 
+}

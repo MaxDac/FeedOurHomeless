@@ -1,0 +1,12 @@
+﻿<img src="@ImageSrc" alt="@Alt" class="@Class" />
+
+@code {
+  [Parameter]
+  public string? ImageSrc { get; set; }
+
+  [Parameter]
+  public string? Alt { get; set; }
+
+  [Parameter]
+  public required string Class { get; set; }
+}
