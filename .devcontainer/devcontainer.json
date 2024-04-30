@@ -1,24 +1,85 @@
 {
-    "name": "Blazor Server App with Postgres",
-    "dockerFile": "Dockerfile",
-    "forwardPorts": [5000, 5001],
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
-    },
-    "extensions": [
-        "ms-dotnettools.csharp",
-        "ms-azuretools.vscode-docker"
-    ],
-    "postCreateCommand": "dotnet restore",
-    "service": {
-        "postgres": {
-            "image": "postgres:latest",
-            "env": {
-                "POSTGRES_PASSWORD": "POSTGRES",
-                "POSTGRES_USER": "POSTGRES",
-                "POSTGRES_DB": "FEED_OUR_HOMELESS"
-            },
-            "ports": ["5432:5432"]
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "feed_our_homeless",
+    "workspaceFolder": "/workspaces/FeedOurHomeless",
+    "shutdownAction": "stopCompose",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": "true",
+            "username": "vscode",
+            "userUid": "1000",
+            "userGid": "1000",
+            "upgradePackages": "true"
+        },
+        "ghcr.io/devcontainers/features/git:1": {
+            "version": "latest",
+            "ppa": "false"
+        },
+        "ghcr.io/devcontainers/features/sshd:1": {
+            "version": "latest"
         }
-    }
+    },
+    // Configure tool-specific properties.
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                "emmet.includeLanguages": {
+                    "phoenix-heex": "html"
+                },
+                "tailwindCSS.includeLanguages": {
+                    "elixir": "html",
+                    "phoenix-heex": "html"
+                },
+                "vscode-elixir-test": {
+                    "mixEnv": "test",
+                    "beforeTest": "clear"
+                },
+                "vim.handleKeys": {
+                    "<C-d>": true,
+                    "<C-p>": false
+                },
+                "zig.initialSetupDone": true,
+                "zig.path": "",
+                "zig.zls.path": "",
+                "editor.fontLigatures": true,
+                "editor.fontSize": 12,
+                "editor.fontFamily": "'FiraCode Nerd Font Mono', 'Courier New', monospace",
+                "editor.lineNumbers": "relative",
+                "terminal.integrated.fontSize": 12,
+                "editor.tabSize": 2,
+                "editor.rulers": [80, 120]
+            },
+            "extensions": [
+                // CSharp
+                "ms-dotnettools.csdevkit",
+
+                // JS
+                "dbaeumer.vscode-eslint",
+                "vitest.explorer",
+
+                // Tooling 
+                "github.vscode-github-actions",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "ms-azuretools.vscode-docker",
+                "GitHub.vscode-pull-request-github",
+                "eamodio.gitlens",
+
+                // Postgres
+                "ms-ossdata.vscode-postgresql"
+            ]
+        }
+    },
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [
+        5000,
+        5432,
+        5050
+    ],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "sh .devcontainer/post-create-command.sh",
+    // Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
 }
