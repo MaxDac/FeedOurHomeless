@@ -1,0 +1,24 @@
+{
+    "name": "Blazor Server App with Postgres",
+    "dockerFile": "Dockerfile",
+    "forwardPorts": [5000, 5001],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-azuretools.vscode-docker"
+    ],
+    "postCreateCommand": "dotnet restore",
+    "service": {
+        "postgres": {
+            "image": "postgres:latest",
+            "env": {
+                "POSTGRES_PASSWORD": "POSTGRES",
+                "POSTGRES_USER": "POSTGRES",
+                "POSTGRES_DB": "FEED_OUR_HOMELESS"
+            },
+            "ports": ["5432:5432"]
+        }
+    }
+}
