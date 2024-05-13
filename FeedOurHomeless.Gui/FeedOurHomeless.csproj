@@ -6,6 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="FeedOurHomeless.Data\FeedOurHomeless.Data.csproj" />
+  </ItemGroup>
+
   <Target Name="Compile Tailwind" BeforeTargets="Build">
     <Exec Command="npm install" />
     <Exec Command="npm run tailwind" />
