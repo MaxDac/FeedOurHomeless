@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="FeedOurHomeless.Data\FeedOurHomeless.Data.csproj" />
+    <PackageReference Include="Microsoft.Identity.Web" Version="2.20.0" />
+    <PackageReference Include="Microsoft.Identity.Web.UI" Version="2.20.0" />
   </ItemGroup>
 
   <Target Name="Compile Tailwind" BeforeTargets="Build">
