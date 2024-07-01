@@ -52,23 +52,17 @@
                 "editor.rulers": [80, 120]
             },
             "extensions": [
-                // CSharp
                 "ms-dotnettools.csdevkit",
-
-                // JS
                 "dbaeumer.vscode-eslint",
                 "vitest.explorer",
-
-                // Tooling 
                 "github.vscode-github-actions",
                 "GitHub.copilot",
                 "GitHub.copilot-chat",
                 "ms-azuretools.vscode-docker",
                 "GitHub.vscode-pull-request-github",
                 "eamodio.gitlens",
-
-                // Postgres
-                "ms-ossdata.vscode-postgresql"
+                "ms-ossdata.vscode-postgresql",
+                "PKief.material-icon-theme"
             ]
         }
     },
@@ -79,7 +73,7 @@
         5050
     ],
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "sh .devcontainer/post-create-command.sh",
+    "postCreateCommand": "npm install --prefix FeedOurHomeless",
     // Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
     "remoteUser": "vscode"
 }

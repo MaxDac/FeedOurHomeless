@@ -1,6 +1,6 @@
 version: '3'
 services:
-  privee:
+  feed_our_homeless:
     build:
       dockerfile: ./Dockerfile
 
